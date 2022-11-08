@@ -56,6 +56,14 @@ class TodoPresenterTest {
 
     @Test
     fun `When I deleteNote, I expect the note to be remove from the list`() {
-        fail()
+        val originalNotes = testSubjects.notes
+        val originalCount = originalNotes.size
+        val indexToDelete = 2
+        val deletedNote = originalNotes[2]
+        testSubjects.deleteNote(indexToDelete)
+        val newNotes = testSubjects.notes
+        val newCount = newNotes.size
+        assertTrue("Expected to new count to be smaller than original", newCount < originalCount)
+        assertFalse("Expected deletedNote to be absent", newNotes.contains(deletedNote))
     }
 }
