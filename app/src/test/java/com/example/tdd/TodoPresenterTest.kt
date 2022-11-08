@@ -9,11 +9,15 @@ import kotlin.random.Random
 
 class TodoPresenterTest {
 
+    private val uniqueTimeStamps = generateSequence { Random.nextLong(0, 100000) }
+        .take(10)
+        .toList()
+
     private val fakeRepository = object : TodoRepository {
         override fun getNotes(): List<TodoNote> = (1..10).map {
             TodoNote(
                 body = "Body $it",
-                createdTimeStamp = Random.nextLong()
+                createdTimeStamp = uniqueTimeStamps[it - 1]
             )
         }
     }
