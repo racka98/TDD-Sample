@@ -19,6 +19,10 @@ class TodoPresenter(todoRepository: TodoRepository) {
         _notes[index] = noteToUpdate.copy(body = text)
     }
 
+    fun deleteNote(index: Int) {
+        _notes.removeAt(index)
+    }
+
     private class NoteComparator : Comparator<TodoNote> {
         override fun compare(o1: TodoNote, o2: TodoNote): Int {
             return o1.createdTimeStamp.compareTo(o2.createdTimeStamp)
