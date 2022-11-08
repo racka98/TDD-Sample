@@ -1,12 +1,12 @@
 package com.example.tdd.data.local.datastore
 
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-import timber.log.Timber
 import java.io.IOException
 
 object DataStoreHelpers {
@@ -26,7 +26,7 @@ object DataStoreHelpers {
     ): Flow<T> = dataStore.data
         .catch { exception ->
             if (exception is IOException) {
-                Timber.d(exception.message.toString())
+                Log.d("DataStore", exception.message.toString())
             } else {
                 throw exception
             }
