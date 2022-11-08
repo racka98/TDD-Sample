@@ -10,7 +10,17 @@ import kotlin.random.Random
 
 class TodoPresenterTest {
 
-    private val testSubjects = TodoPresenter()
+    private val fakeRepository = object : TodoRepository {
+        override fun getNotes(): List<TodoNote> = (1..10).map {
+            TodoNote(
+                body = "Body $it",
+                createdTimeStamp = Random.nextLong()
+            )
+        }
+    }
+
+    private val testSubjects = TodoPresenter(fakeRepository)
+
     @Test
     fun `When I init, I expect notes in reverse chronological order`() {
         val notes = testSubjects.notes
@@ -33,14 +43,5 @@ class TodoPresenterTest {
     @Test
     fun `When I deleteNote, I expect the note to be remove from the list`() {
         fail()
-    }
-
-    private val fakeRepository = object : TodoRepository {
-        override fun getNotes(): List<TodoNote> = (1..10).map {
-            TodoNote(
-                body = "Body $it",
-                createdTimeStamp = Random.nextLong()
-            )
-        }
     }
 }
