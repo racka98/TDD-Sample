@@ -1,13 +1,20 @@
 package com.example.tdd
 
+import com.example.tdd.todo.TodoPresenter
+import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
 import org.junit.Test
 
 class TodoPresenterTest {
 
+    private val testSubjects = TodoPresenter()
     @Test
     fun `When I init, I expect notes in reverse chronological order`() {
-        fail()
+        val notes = testSubjects.notes
+        val isReverseChron = notes
+            .windowed(2, 1)
+            .all { (a, b) -> a.createdTimeStamp > b.createdTimeStamp }
+        assertTrue(isReverseChron)
     }
 
     @Test
