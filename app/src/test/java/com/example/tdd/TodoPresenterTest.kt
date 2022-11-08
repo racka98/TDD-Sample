@@ -1,9 +1,12 @@
 package com.example.tdd
 
+import com.example.tdd.todo.TodoNote
 import com.example.tdd.todo.TodoPresenter
+import com.example.tdd.todo.TodoRepository
 import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
 import org.junit.Test
+import kotlin.random.Random
 
 class TodoPresenterTest {
 
@@ -30,5 +33,14 @@ class TodoPresenterTest {
     @Test
     fun `When I deleteNote, I expect the note to be remove from the list`() {
         fail()
+    }
+
+    private val fakeRepository = object : TodoRepository {
+        override fun getNotes(): List<TodoNote> = (1..10).map {
+            TodoNote(
+                body = "Body $it",
+                createdTimeStamp = Random.nextLong()
+            )
+        }
     }
 }
