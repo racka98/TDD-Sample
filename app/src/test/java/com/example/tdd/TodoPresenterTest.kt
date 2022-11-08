@@ -47,7 +47,11 @@ class TodoPresenterTest {
 
     @Test
     fun `When I updateNote, I expect the note to be updated with given text`() {
-        fail()
+        val noteText = "New Body"
+        val noteIndex = 0
+        testSubjects.updateNoteText(noteIndex, noteText)
+        val updatedNote = testSubjects.notes[noteIndex]
+        assertEquals("Expected Body to be same", noteText, updatedNote.body)
     }
 
     @Test
