@@ -1,12 +1,12 @@
-package com.example.composetemplate.data.local.datastore
+package com.example.tdd.data.local.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.composetemplate.ui.theme.Theme
-import com.example.composetemplate.utils.Constants
+import com.example.tdd.ui.theme.Theme
+import com.example.tdd.utils.Constants
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow

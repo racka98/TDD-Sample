@@ -1,4 +1,4 @@
-package com.example.composetemplate.data.local.datastore
+package com.example.tdd.data.local.datastore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

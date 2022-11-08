@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.composetemplate"
+    namespace = "com.example.tdd"
 
     compileSdk = libs.versions.config.android.compilesdk.get().toInt()
 
@@ -62,8 +62,6 @@ android {
 }
 
 dependencies {
-    // Desugaring
-    coreLibraryDesugaring(libs.desugaring)
 
     // Core Functionality
     implementation(libs.core.ktx)
@@ -76,6 +74,9 @@ dependencies {
     testImplementation(libs.junit.core)
     testImplementation(libs.junit.test)
     testImplementation(libs.junit.test.ktx)
+    testImplementation(kotlin("test-common"))
+    testImplementation(kotlin("test-annotations-common"))
+    testImplementation(libs.coroutines.test)
     androidTestImplementation(libs.junit.test)
 
     testImplementation(libs.androidx.test.arch.core)
@@ -94,13 +95,11 @@ dependencies {
     // Datastore
     implementation(libs.androidx.datastore.preferences)
 
+    // Coroutines
+    implementation(libs.coroutines.core)
+
     // Koin DI
     implementation(libs.koin.android)
     // Splash Screen
     implementation(libs.splash.screen.core)
-    // Timber - Logging
-    implementation(libs.timber.log)
-
-    // Memory Leaks
-    debugImplementation(libs.leakcanary.android)
 }

@@ -1,4 +1,4 @@
-package com.example.composetemplate.ui.main
+package com.example.tdd.ui.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,10 +10,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.composetemplate.data.local.datastore.PrefDataStore
-import com.example.composetemplate.ui.components.Greeting
-import com.example.composetemplate.ui.theme.ComposeAndroidTemplateTheme
-import com.example.composetemplate.ui.theme.Theme
+import com.example.tdd.data.local.datastore.PrefDataStore
+import com.example.tdd.ui.components.Greeting
+import com.example.tdd.ui.theme.ComposeAndroidTemplateTheme
+import com.example.tdd.ui.theme.Theme
 import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {

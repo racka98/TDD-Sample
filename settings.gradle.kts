@@ -1,4 +1,4 @@
-rootProject.name = "ComposeAndroidTemplate"
+rootProject.name = "TDD-Sample"
 include(":app")
 
 pluginManagement {

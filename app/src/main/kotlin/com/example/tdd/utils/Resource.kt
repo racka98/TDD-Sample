@@ -1,4 +1,4 @@
-package com.example.composetemplate.utils
+package com.example.tdd.utils
 
 // Use this for handling data from network calls
 sealed class Resource<T>(

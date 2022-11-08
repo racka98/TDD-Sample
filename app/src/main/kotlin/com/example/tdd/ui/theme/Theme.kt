@@ -1,4 +1,4 @@
-package com.example.composetemplate.ui.theme
+package com.example.tdd.ui.theme
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
