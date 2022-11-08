@@ -3,8 +3,7 @@ package com.example.tdd
 import com.example.tdd.todo.TodoNote
 import com.example.tdd.todo.TodoPresenter
 import com.example.tdd.todo.TodoRepository
-import org.junit.Assert.assertTrue
-import org.junit.Assert.fail
+import org.junit.Assert.*
 import org.junit.Test
 import kotlin.random.Random
 
@@ -32,7 +31,14 @@ class TodoPresenterTest {
 
     @Test
     fun `When I addNote, I expect a new note at the head of the list`() {
-        fail()
+        val originalCont = testSubjects.notes.size
+
+        testSubjects.addNote()
+
+        val newCount = testSubjects.notes.size
+        val firstNote = testSubjects.notes.first()
+        assertEquals("Expected Note to be added", originalCont + 1, newCount)
+        assertEquals("Expected Head of note to be empty", firstNote.body, "")
     }
 
     @Test
